@@ -420,4 +420,63 @@ namespace sdds
         return flag;
     }
 
+    //Sets the dateonly member variable
+    Date& Date::dateOnly(bool input)
+    {
+        input ? m_onlyDate = true : m_onlyDate = false;
+        return *this;
+    }
+
+    //bool operator overload for date class
+    Date::operator bool() const
+    {
+        return !m_msg;
+    }
+
+    //returns a reference to the error object in date class
+    const Error& Date::error() const
+    {
+        return m_msg;
+    }
+
+    //For displaying date class object
+    std::ostream& Date::displayDate(std::ostream& os) const
+    {
+        if (m_msg)
+        {
+            os << m_msg;
+            os << '(';
+        }
+        os << m_year;
+        os << '/';
+        os.setf(ios::right);
+        os.width(2);
+        os.fill('0');
+        os << m_month;
+        os.unsetf(ios::right);
+        os << '/';
+        os.width(2);
+        os << m_day;
+        if (m_onlyDate)
+        {
+            if (m_msg)
+            {
+                os << ')';
+            }
+        }
+        else
+        {
+            os << ", ";
+            os.width(2);
+            os << m_hour;
+            os << ':';
+            os.width(2);
+            os << m_min;
+            if (m_msg)
+            {
+                os << ')';
+            }
+        }
+        return os;
+    }
 }
