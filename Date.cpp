@@ -71,4 +71,353 @@ namespace sdds
 
         validate(m_year, m_month, m_day, m_hour, m_min);
     }
+
+    //==operator overload for date class
+    bool Date::operator==(const Date& rhs) const
+    {
+        bool flag = true;
+        if (m_year != rhs.m_year)
+        {
+            flag = false;
+        }
+        else if (m_month != rhs.m_month)
+        {
+            flag = false;
+        }
+        else if (m_day != rhs.m_day)
+        {
+            flag = false;
+        }
+        else if (m_hour != rhs.m_hour)
+        {
+            flag = false;
+        }
+        else if (m_min != rhs.m_min)
+        {
+            flag = false;
+        }
+        return flag;
+    }
+
+    //!=operator overload for date class
+    bool Date::operator!=(const Date& rhs) const
+    {
+        bool flag = false;
+        if (m_year != rhs.m_year)
+        {
+            flag = true;
+        }
+        else
+        {
+            if (m_month != rhs.m_month)
+            {
+                flag = true;
+            }
+            else
+            {
+                if (m_day != rhs.m_day)
+                {
+                    flag = true;
+                }
+                else
+                {
+                    if (m_hour != rhs.m_hour)
+                    {
+                        flag = true;
+                    }
+                    else
+                    {
+                        if (m_min != rhs.m_min)
+                        {
+                            flag = true;
+                        }
+                        else
+                        {
+                            flag = false;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        return flag;
+    }
+
+    //<operator overload for date class
+    bool Date::operator<(const Date& rhs) const
+    {
+        bool flag = false;
+        if (m_year < rhs.m_year)
+        {
+            flag = true;
+        }
+        else if (m_year > rhs.m_year)
+        {
+            flag = false;
+        }
+        else if (m_year == rhs.m_year)
+        {
+            if (m_month < rhs.m_month)
+            {
+                flag = true;
+            }
+            else if (m_month > rhs.m_month)
+            {
+                flag = false;
+            }
+            else if (m_month == rhs.m_month)
+            {
+                if (m_day < rhs.m_day)
+                {
+                    flag = true;
+                }
+                else if (m_day > rhs.m_day)
+                {
+                    flag = false;
+                }
+                else if (m_day == m_day)
+                {
+                    if (m_onlyDate == false)
+                    {
+                        if (m_hour < rhs.m_hour)
+                        {
+                            flag = true;
+                        }
+                        else if (m_hour > rhs.m_hour)
+                        {
+                            flag = true;
+                        }
+                        else if (m_hour == rhs.m_hour)
+                        {
+                            if (m_min < rhs.m_min)
+                            {
+                                flag = true;
+                            }
+                            else
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        flag = false;
+                    }
+                }
+            }
+        }
+
+        return flag;
+    }
+
+    //>operator overload for date class
+    bool Date::operator>(const Date& rhs) const
+    {
+        bool flag = false;
+        if (m_year > rhs.m_year)
+        {
+            flag = true;
+        }
+        else if (m_year < rhs.m_year)
+        {
+            flag = false;
+        }
+        else if (m_year == rhs.m_year)
+        {
+            if (m_month > rhs.m_month)
+            {
+                flag = true;
+            }
+            else if (m_month < rhs.m_month)
+            {
+                flag = false;
+            }
+            else if (m_month == rhs.m_month)
+            {
+                if (m_day > rhs.m_day)
+                {
+                    flag = true;
+                }
+                else if (m_day < rhs.m_day)
+                {
+                    flag = false;
+                }
+                else if (m_day == m_day)
+                {
+                    if (m_onlyDate == false)
+                    {
+                        if (m_hour > rhs.m_hour)
+                        {
+                            flag = true;
+                        }
+                        else if (m_hour < rhs.m_hour)
+                        {
+                            flag = true;
+                        }
+                        else if (m_hour == rhs.m_hour)
+                        {
+                            if (m_min > rhs.m_min)
+                            {
+                                flag = true;
+                            }
+                            else
+                            {
+                                flag = false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        flag = false;
+                    }
+                }
+            }
+        }
+
+        return flag;
+    }
+
+    //<=operator overload for date class
+    bool Date::operator<=(const Date& rhs) const
+    {
+        bool flag = false;
+        if (m_year < rhs.m_year)
+        {
+            flag = true;
+        }
+        else if (m_year > rhs.m_year)
+        {
+            flag = false;
+        }
+        else if (m_year == rhs.m_year)
+        {
+            if (m_month < rhs.m_month)
+            {
+                flag = true;
+            }
+            else if (m_month > rhs.m_month)
+            {
+                flag = false;
+            }
+            else if (m_month == rhs.m_month)
+            {
+                if (m_day < rhs.m_day)
+                {
+                    flag = true;
+                }
+                else if (m_day > rhs.m_day)
+                {
+                    flag = false;
+                }
+                else if (m_day == m_day)
+                {
+                    if (m_onlyDate == false)
+                    {
+                        if (m_hour < rhs.m_hour)
+                        {
+                            flag = true;
+                        }
+                        else if (m_hour > rhs.m_hour)
+                        {
+                            flag = true;
+                        }
+                        else if (m_hour == rhs.m_hour)
+                        {
+                            if (m_min < rhs.m_min)
+                            {
+                                flag = true;
+                            }
+                            else if (m_min > rhs.m_min)
+                            {
+                                flag = false;
+                            }
+                            else
+                            {
+                                flag = true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        flag = false;
+                    }
+                }
+            }
+        }
+
+        return flag;
+    }
+
+    //>=operator overload for date class
+    bool Date::operator>=(const Date& rhs) const
+    {
+        bool flag = false;
+        if (m_year > rhs.m_year)
+        {
+            flag = true;
+        }
+        else if (m_year < rhs.m_year)
+        {
+            flag = false;
+        }
+        else if (m_year == rhs.m_year)
+        {
+            if (m_month > rhs.m_month)
+            {
+                flag = true;
+            }
+            else if (m_month < rhs.m_month)
+            {
+                flag = false;
+            }
+            else if (m_month == rhs.m_month)
+            {
+                if (m_day > rhs.m_day)
+                {
+                    flag = true;
+                }
+                else if (m_day < rhs.m_day)
+                {
+                    flag = false;
+                }
+                else if (m_day == m_day)
+                {
+                    if (m_onlyDate == false)
+                    {
+                        if (m_hour > rhs.m_hour)
+                        {
+                            flag = true;
+                        }
+                        else if (m_hour < rhs.m_hour)
+                        {
+                            flag = true;
+                        }
+                        else if (m_hour == rhs.m_hour)
+                        {
+                            if (m_min > rhs.m_min)
+                            {
+                                flag = true;
+                            }
+                            else if (m_min < rhs.m_min)
+                            {
+                                flag = false;
+                            }
+                            else
+                            {
+                                flag = true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        flag = false;
+                    }
+                }
+            }
+        }
+
+        return flag;
+    }
+
 }
