@@ -32,4 +32,29 @@ namespace sdds
 			delete[] errorMessage;
 		}
 	}
+
+	//Copy constructor
+	Error::Error(Error& rhs)
+	{
+		errorMessage = nullptr;
+		*this = rhs;
+	}
+
+	//Copt assignment operator
+	Error& Error::operator=(Error& rhs)
+	{
+		if (this != &rhs)
+		{
+			delete[] errorMessage;
+			errorMessage = nullptr;
+
+			if (rhs)
+			{
+				errorMessage = new char[(strlen(rhs.errorMessage) + 1)];
+				strcpy(errorMessage, rhs.errorMessage);
+			}
+
+		}
+		return *this;
+	}
 }
