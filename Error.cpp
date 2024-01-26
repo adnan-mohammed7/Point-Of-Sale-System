@@ -99,4 +99,13 @@ namespace sdds
 		return errorMessage;
 	}
 
+	//Helper function to stream erre class object to ostream
+	ostream& operator<<(ostream& os, const Error& rhs)
+	{
+		if (rhs)
+		{
+			os << rhs.errorMsg();
+		}
+		return os;
+	}
 }
