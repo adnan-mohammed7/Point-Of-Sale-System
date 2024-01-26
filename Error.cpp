@@ -57,4 +57,46 @@ namespace sdds
 		}
 		return *this;
 	}
+
+	//=operator overload
+	void Error::operator=(const char error[])
+	{
+		if (error != NULL && error[0] != '\0')
+		{
+			if (errorMessage != nullptr)
+			{
+				delete[] errorMessage;
+			}
+			errorMessage = new char[(strlen(error) + 1)];
+			strcpy(errorMessage, error);
+		}
+		else
+		{
+			errorMessage = nullptr;
+		}
+	}
+
+	//Bool conversion operator
+	Error::operator bool() const
+	{
+		return errorMessage != nullptr;
+	}
+
+	//sets the error object to safe empty state
+	Error& Error::clear()
+	{
+		if (errorMessage != nullptr)
+		{
+			delete[] errorMessage;
+			errorMessage = nullptr;
+		}
+		return *this;
+	}
+
+	//to display error class object
+	char* Error::errorMsg() const
+	{
+		return errorMessage;
+	}
+
 }
