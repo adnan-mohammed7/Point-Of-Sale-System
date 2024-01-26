@@ -1,0 +1,39 @@
+# Compiled files
+*.o
+*.out
+*.exe
+*.dll
+*.so
+*.dylib
+*.app
+*.lib
+*.a
+
+# Compiled headers
+*.gch
+
+# Precompiled headers
+*.pch
+
+# Build folders
+build/
+bin/
+Release/
+Debug/
+cmake-build-*/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.suo
+*.user
+*.sdf
+*.opensdf
+*.sln.docstates
+
+# Dependency files
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles/
+*.cmake
+
