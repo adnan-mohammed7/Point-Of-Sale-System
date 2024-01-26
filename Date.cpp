@@ -440,7 +440,7 @@ namespace sdds
     }
 
     //For displaying date class object
-    std::ostream& Date::displayDate(std::ostream& os) const
+    std::ostream& Date::displayDate(std::ostream& os)
     {
         if (m_msg)
         {
@@ -478,5 +478,83 @@ namespace sdds
             }
         }
         return os;
+    }
+
+    //For inputting date class object
+    std::istream& Date::read(std::istream& is)
+    {
+        bool check = true;
+        m_msg.clear();
+        m_year = m_month = m_day = m_hour = m_min = 0;
+
+        is >> m_year;
+        if (is.fail())
+        {
+            m_msg = "Cannot read year entry";
+            is.clear();
+            check = false;
+        }
+        is.ignore();
+        if (check)
+        {
+            is >> m_month;
+            if (is.fail())
+            {
+                m_msg = "Cannot read month entry";
+                is.clear();
+                check = false;
+            }
+            is.ignore();
+        }
+
+        if (check)
+        {
+            is >> m_day;
+            if (is.fail())
+            {
+                m_msg = "Cannot read day entry";
+                is.clear();
+                check = false;
+            }
+        }
+
+        if (check)
+        {
+            if (is.peek() != '\n')
+            {
+                is.ignore(2, isdigit(is.peek()));
+                if (check)
+                {
+                    is >> m_hour;
+                    if (is.fail())
+                    {
+                        m_msg = "Cannot read hour entry";
+                        is.clear();
+                        check = false;
+                    }
+                    is.ignore();
+                }
+                if (check)
+                {
+                    is >> m_min;
+                    if (is.fail())
+                    {
+                        m_msg = "Cannot read minute entry";
+                        is.clear();
+                        check = false;
+                    }
+                }
+            }
+            else
+            {
+                m_hour = m_min = 0;
+            }
+        }
+
+        if (check)
+        {
+            validate(m_year, m_month, m_day, m_hour, m_min);
+        }
+        return is;
     }
 }
