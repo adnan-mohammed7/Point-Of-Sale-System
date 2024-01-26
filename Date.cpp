@@ -557,4 +557,16 @@ namespace sdds
         }
         return is;
     }
+
+    //Helper function to overload << operator for date class
+    std::ostream& operator<<(std::ostream& os, Date& rhs)
+    {
+        return rhs.displayDate(os);
+    }
+
+    //Helper function to overload >> operator for date class
+    std::istream& operator>>(std::istream& is, Date& rhs)
+    {
+        return rhs.read(is);
+    }
 }
