@@ -46,3 +46,59 @@ namespace sdds
 
 		return choice;
 	}
+	void PosApp::addItem()
+	{
+		cout << ">>>> Adding Item to the store................................................" << endl;
+		cout << "Running addItem()" << endl;
+	}
+	void PosApp::removeItem()
+	{
+		cout << ">>>> Remove Item............................................................." << endl;
+		cout << "Running removeItem()" << endl;
+	}
+	void PosApp::stockItem()
+	{
+		cout << ">>>> Select an item to stock................................................." << endl;
+		cout << "Running stockItem()" << endl;
+	}
+	void PosApp::listItems()
+	{
+		cout << ">>>> Listing Items..........................................................." << endl;
+		cout << "Running listItems()" << endl;
+	}
+	void PosApp::POS()
+	{
+		cout << ">>>> Starting Point of Sale.................................................." << endl;
+		cout << "Running POS()" << endl;
+	}
+	void PosApp::saveRecs() const
+	{
+		cout << ">>>> Saving Data............................................................." << endl;
+		cout << "Saving data in " << m_filename << endl;
+	}
+	void PosApp::loadRecs()
+	{
+		cout << ">>>> Loading Items..........................................................." << endl;
+		cout << "Loading data from " << m_filename << endl;
+	}
+	PosApp::PosApp(const char filename[])
+	{
+		strcpy(m_filename, filename);
+	}
+
+	void PosApp::run()
+	{
+		int check = 1;
+
+		loadRecs();
+
+		do
+		{
+			check = menu();
+		} while (check);
+
+		saveRecs();
+
+		cout << "Goodbye!" << endl;
+	}
+}
