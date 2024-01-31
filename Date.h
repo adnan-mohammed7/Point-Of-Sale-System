@@ -72,7 +72,7 @@ namespace sdds
 		/*To display the date class object
 		Parameters
 		ostream& os*/
-		std::ostream& displayDate(std::ostream& os);
+		std::ostream& displayDate(std::ostream& os) const;
 
 		/*To read the date class object
 		Parameters
@@ -86,7 +86,7 @@ namespace sdds
 	};
 
 	/*<<operator overload to insert date class into ostream*/
-	std::ostream& operator<<(std::ostream& os, Date& rhs);
+	std::ostream& operator<<(std::ostream& os, const Date& rhs);
 
 	/*>>operator overload to insert date class into istream*/
 	std::istream& operator>>(std::istream& is, Date& rhs);

@@ -440,7 +440,7 @@ namespace sdds
     }
 
     //For displaying date class object
-    std::ostream& Date::displayDate(std::ostream& os)
+    std::ostream& Date::displayDate(std::ostream& os) const
     {
         if (m_msg)
         {
@@ -558,8 +558,33 @@ namespace sdds
         return is;
     }
 
+    //for validating data members of date class
+    void Date::validate(int year, int month, int day, int hour, int min)
+    {
+        if (m_year < MIN_YEAR || m_year > MAX_YEAR)
+        {
+            m_msg = "Invalid Year";
+        }
+        else if (m_month < 1 || m_month > 12)
+        {
+            m_msg = "Invalid Month";
+        }
+        else if (m_day < 1 || m_day > daysOfMonth(m_year, m_month))
+        {
+            m_msg = "Invalid Day";
+        }
+        else if (m_hour < 0 || m_hour > 23)
+        {
+            m_msg = "Invalid Hour";
+        }
+        else if (m_min < 0 || m_min > 59)
+        {
+            m_msg = "Invlid Minute";
+        }
+    }
+
     //Helper function to overload << operator for date class
-    std::ostream& operator<<(std::ostream& os, Date& rhs)
+    std::ostream& operator<<(std::ostream& os, const Date& rhs)
     {
         return rhs.displayDate(os);
     }
