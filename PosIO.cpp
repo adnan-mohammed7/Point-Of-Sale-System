@@ -11,11 +11,13 @@ namespace sdds
 	}
 	std::ostream& operator<<(std::ostream& os, const PosIO& rhs)
 	{
+		os.fill(' ');
 		//Calling the defined function
 		return rhs.write(os);
 	}
 	std::ofstream& operator<<(std::ofstream& os, const PosIO& rhs)
 	{
+		os.fill(' ');
 		//Calling the defined function
 		return rhs.save(os);
 	}
