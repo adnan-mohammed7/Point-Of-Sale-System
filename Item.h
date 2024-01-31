@@ -101,7 +101,7 @@ namespace sdds
 		/*to display Item obejct in bill format
 		Parameters:
 		ostream& os*/
-		std::ostream& bprint(std::ostream& os);
+		std::ostream& bprint(std::ostream& os) const;
 
 		/*To set item object to safe empty state*/
 		void setEmpty();
