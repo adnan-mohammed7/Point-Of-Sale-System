@@ -1,22 +1,7 @@
-/* Citation and Sources...
-Final Project Milestone 1
-Module: PosApp
-Filename: PosApp.h
-Version 1.0
-Author	Adnan Mohammed
-Revision History
------------------------------------------------------------
-Date      13th March 2023
-2023/03/13  Preliminary release
-2023/03/13  Debugged DMA
------------------------------------------------------------
-I have done all the coding by myself and only copied the code
-that my professor provided to complete my project milestones.
------------------------------------------------------------
-*/
-
 #ifndef SDDS_POSAPP_H
 #define SDDS_POSAPP_H
+
+#include "Item.h"
 
 namespace sdds
 {
@@ -24,9 +9,9 @@ namespace sdds
 	class PosApp
 	{
 		char m_filename[128];
+		Item* m_Iptr[MAX_NO_ITEMS];
 		int m_nptr;
 		int menu();
-
 		/*To add new item to the PosApp*/
 		void addItem();
 
@@ -68,6 +53,9 @@ namespace sdds
 		/*To get user input for the row number of the item to be removed*/
 		int selectItem();
 
+		/*To get sku from the user and return the item address or nullptr*/
+		Item* search(char* sku);
+
 	public:
 		/*One argument constructor
 		Parameters:
@@ -77,6 +65,7 @@ namespace sdds
 		PosApp& operator=(PosApp& input) = delete;
 		void run();
 		~PosApp();
+	};
 }
 
 #endif // !POSAPP_H
