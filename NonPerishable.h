@@ -15,3 +15,5 @@ namespace sdds
 		std::ostream& write(std::ostream& os) const;
 	};
 }
+
+#endif 
