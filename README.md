@@ -21,7 +21,6 @@ To use the Point of Sale System, follow these steps:
 
 2. **Follow On-screen Instructions:**
 The system will prompt you with on-screen instructions. Navigate through the options to simulate a point of sale environment.
-![1_ICkkGTbgfJh9LByp79y6Jw](https://github.com/adnan-mohammed7/Point-Of-Sale-System/assets/141707043/65037943-5d1a-4445-89a6-afeef8340948)
 
 ## Contributing
 
