@@ -21,12 +21,12 @@ namespace sdds
 		/*Copy constructor
 		Parameters
 		Error& rhs*/
-		Error(Error& rhs);
+		Error(const Error& rhs);
 
 		/*Copt assignment operator
 		Parameters
 		Error& rhs*/
-		Error& operator=(Error& rhs);
+		Error& operator=(const Error& rhs);
 
 		/*=operator overload
 		Parameters

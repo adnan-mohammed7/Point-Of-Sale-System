@@ -34,14 +34,14 @@ namespace sdds
 	}
 
 	//Copy constructor
-	Error::Error(Error& rhs)
+	Error::Error(const Error& rhs)
 	{
 		errorMessage = nullptr;
 		*this = rhs;
 	}
 
 	//Copt assignment operator
-	Error& Error::operator=(Error& rhs)
+	Error& Error::operator=(const Error& rhs)
 	{
 		if (this != &rhs)
 		{
